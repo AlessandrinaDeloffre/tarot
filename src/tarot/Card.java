@@ -31,6 +31,8 @@ abstract class Card extends JFrame {
 		return "C:\\Users\\aless\\eclipse-workspace\\tarot\\src\\tarot\\assets\\"+this.image;
 	}
 	
+	
+	
 	public void addDescription(String description) {
 		this.description = description;
 	}

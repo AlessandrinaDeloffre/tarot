@@ -14,11 +14,12 @@ import javax.swing.ScrollPaneConstants;
 
 public class Deck extends JPanel {
 	public ArrayList<Card> deck = new ArrayList<Card>();
+	public ArrayList<Card> deckMajor = new ArrayList<Card>();
+	public ArrayList<Card> deckMinor = new ArrayList<Card>();
 	public JPanel panel;
 	public JFrame window;
 	public String deckType;
 	public Deck(String type) {
-		System.out.println("newDeck");
 		if(type=="major") {
 			this.deck = new CardMajor().deck;
 			this.deckType=type;
@@ -26,49 +27,59 @@ public class Deck extends JPanel {
 			this.deck = new CardMinor().deck;
 			this.deckType=type;
 		} else if (type=="complete"){
-			this.deck=new CardMajor().deck;
-			deck.addAll(new CardMinor().deck);
+			this.deckMajor = new CardMajor().deck;
+			this.deck= this.deckMajor;
+			this.deckMinor = new CardMinor().deck;
+			deck.addAll(this.deckMinor);
 			this.deckType=type;
 		}
 	}
 	
-	public void generateWindow() {
-		this.panel = new JPanel();
-		this.window = new JFrame("Tarot");
-		this.window.setSize(1000, 1000);
-		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.window.setVisible(true);
+	public Deck() {
+		
+			this.deckMajor = new CardMajor().deck;
+			this.deck= this.deckMajor;
+			this.deckMinor = new CardMinor().deck;
+			deck.addAll(this.deckMinor);
+			//this.deckType=type;
+		
 	}
 	
-	public void addCardToPanel(int i, JPanel p) {
+
+	public void addCardToPanel(ArrayList<Card> d, int i, JPanel p) {
 		JLabel label = new JLabel();
 		int width = 150;
-		ImageIcon imageIcon = new ImageIcon(new ImageIcon(this.getCard(i).getImageFile()).getImage().getScaledInstance(width, (int) (width*1.85), Image.SCALE_SMOOTH));
+		ImageIcon imageIcon = new ImageIcon(new ImageIcon(this.getCard(d, i).getImageFile()).getImage().getScaledInstance(width, (int) (width*1.85), Image.SCALE_SMOOTH));
 		label.setIcon(imageIcon);
 		p.add(label);
 
 	}
 	
-	public Card getCard(int index) {
-		return this.deck.get(index);
+	public Card getCard(ArrayList<Card> d, int index) {
+		return d.get(index);
 	}
 	
-	public void deleteCard(Object c) {
+	public void deleteCard(Card c) {
 		deck.remove(c);
+		if(c.type=="major") {
+			deckMajor.remove(c);
+		} else if (c.type=="minor") {
+			deckMinor.remove(c);
+		}
+	}
+	public void addCard(String name, int number, String image) {
+		CardMajor newCard = new CardMajor(name, number, image);
+		deck.add(newCard);
 	}
 	
-	public void deleteCard(int index) {
-		deck.remove(index);
-	}
-	
-	public void suffleDeck() {
-		Collections.shuffle(this.deck);
+	public void suffleDeck(ArrayList<Card> d) {
+		Collections.shuffle(d);
 	}
 	
 	
-	public void showDeck() {
+	public void showDeck(ArrayList<Card> d) {
 		for(int i=0;i<this.deck.size();i++) {
-			System.out.println(this.deck.get(i).toString());
+			System.out.println(d.get(i).toString());
 		}
 	}
 	
@@ -78,12 +89,12 @@ public class Deck extends JPanel {
 		}
 	}
 	
-	public ArrayList searchByName(String name) {
+	public ArrayList searchByName(ArrayList<Card> d, String name) {
 		ArrayList<Card> searchArray = new ArrayList<Card>();
-		for(int i=0;i<this.deck.size(); i++) {
+		for(int i=0;i<d.size(); i++) {
 			//System.out.println(this.deck.get(i).name);
-			if(this.deck.get(i).name == name) {
-				searchArray.add(this.deck.get(i));
+			if(d.get(i).name == name) {
+				searchArray.add(d.get(i));
 			}
 		}
 		return searchArray;
@@ -100,13 +111,13 @@ public class Deck extends JPanel {
 		return searchArray;
 	}
 	
-	public ArrayList searchByColor(String color) {
+	public ArrayList searchByColor(ArrayList<Card> d, String color) {
 		ArrayList<Card> searchArray = new ArrayList<Card>();
-		for(int i=0;i<this.deck.size(); i++) {
+		for(int i=0;i<d.size(); i++) {
 			//System.out.println(this.deck.get(i).name);
 			
-			if(((CardMinor)(this.deck.get(i))).color == color) {
-				searchArray.add(this.deck.get(i));
+			if(((CardMinor)(d.get(i))).color == color) {
+				searchArray.add(d.get(i));
 			}
 		}
 		return searchArray;

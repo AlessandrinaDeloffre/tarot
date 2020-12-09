@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -21,6 +22,7 @@ public class Board {
 	public JPanel menuPanel;
 	public JScrollPane scrollPanel;
 	public JFrame window;
+	public Deck deck = new Deck();
 	
 	public Board() {
 		this.panel = new JPanel();
@@ -41,21 +43,12 @@ public class Board {
 		this.window.revalidate();
 	}
 	
-	public void removePanel(JPanel p) {
-		this.panel.remove(p);
-		//this.panel.add(p);
-		this.scrollPanel.getViewport().setView(this.panel);
-		this.window.add(this.scrollPanel);
-		this.window.setVisible(true);
-		this.window.revalidate();
-	}
-	
-	public void showDeck(Deck d) {
+	public void showDeck(ArrayList<Card> d) {
 		JPanel p = new JPanel();
-		for (int i =0; i<d.deck.size();i++) {
-			d.addCardToPanel(i, p);
+		for (int i =0; i<d.size();i++) {
+			deck.addCardToPanel( d,i, p);
 		}
-		int row = (int) Math.ceil(((double)d.deck.size())/6);
+		int row = (int) Math.ceil(((double)d.size())/6);
 		p.setLayout(new GridLayout(row, 6));
 		addPanel(p);
 	}
@@ -72,7 +65,6 @@ public class Board {
 				  menuPanel.removeAll();
 				  showCollectionMenu();
 				  showCollection();
-				  //removePanel(menuPanel);
 				  
 			  }
 			});
@@ -92,8 +84,6 @@ public class Board {
 				  panel.removeAll();
 				  menuPanel.removeAll();
 				  showMainMenu();
-				  //removePanel(menuPanel);
-				  
 			  }
 			});
 		this.menuPanel.add(home);
@@ -122,8 +112,8 @@ public class Board {
 	
 	public void showCollection() {
 		addPanel(createLabel("Arcanes Majeures"));
-		showDeck(new Deck("major"));
+		showDeck(deck.deckMajor);
 		addPanel(createLabel("Arcanes Mineures"));
-		showDeck(new Deck("minor"));
+		showDeck(deck.deckMajor);
 	}
 }
