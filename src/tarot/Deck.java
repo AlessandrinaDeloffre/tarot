@@ -1,12 +1,24 @@
 package tarot;
 
+import java.awt.Dimension;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck {
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+public class Deck extends JPanel {
 	public ArrayList<Card> deck = new ArrayList<Card>();
+	public JPanel panel;
+	public JFrame window;
 	public String deckType;
 	public Deck(String type) {
+		System.out.println("newDeck");
 		if(type=="major") {
 			this.deck = new CardMajor().deck;
 			this.deckType=type;
@@ -18,6 +30,23 @@ public class Deck {
 			deck.addAll(new CardMinor().deck);
 			this.deckType=type;
 		}
+	}
+	
+	public void generateWindow() {
+		this.panel = new JPanel();
+		this.window = new JFrame("Tarot");
+		this.window.setSize(1000, 1000);
+		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.window.setVisible(true);
+	}
+	
+	public void addCardToPanel(int i, JPanel p) {
+		JLabel label = new JLabel();
+		int width = 150;
+		ImageIcon imageIcon = new ImageIcon(new ImageIcon(this.getCard(i).getImageFile()).getImage().getScaledInstance(width, (int) (width*1.85), Image.SCALE_SMOOTH));
+		label.setIcon(imageIcon);
+		p.add(label);
+
 	}
 	
 	public Card getCard(int index) {

@@ -27,10 +27,8 @@ public class CardMajor extends Card {
 	
 	public void generateDeck() {
 		for(int i=0; i<cardNames.length; i++) {
-			String mots[]=cardNames[i].toLowerCase().split(" ");
-			if(mots.length==1) {
-				mots=cardNames[i].split("'");
-			}
+			String mots[]=cardNames[i].toLowerCase().split(" |\\'");
+			
 			String imgName;
 			if(mots.length==1) {
 				imgName = i+"-"+mots[0]+".jpg";

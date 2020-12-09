@@ -28,15 +28,15 @@ public class Tarot {
 		//System.out.println("XXXXXXXXXXXXXXXX");
 		//deckMinor.showDeck();
 		deckMajor.showDeck();
-		BufferedImage myPicture;
-		try {
-			System.out.println("tarot.assets\\"+deckMinor.getCard(1).image);
-			myPicture = ImageIO.read(new File("C:\\Users\\aless\\eclipse-workspace\\tarot\\src\\tarot\\assets\\"+deckMinor.getCard(1).image));
-			ImageIcon image = new ImageIcon(myPicture);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+		Board board = new Board();
+		//board.showDeck(deck);
+		//board.showCollection();
+		//board.showDeck(deck);
+		board.showMainMenu();
+		//deckMajor.generateWindow();
+	//	deckMajor.addCardToPanel(1, board);
+		//deckMajor.addCardToPanel(2, board);
 		
 	}
 
