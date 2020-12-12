@@ -10,22 +10,32 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-abstract class Card extends JFrame {
-	protected int number;
+public class Card extends JFrame {
+	protected String number;
 	protected String type;
 	protected String name;
 	protected String description;
-	protected ArrayList deck;
+	protected ArrayList<Card> deck = new ArrayList<Card>();
 	protected String image;
-	
-	public Card() {
-	}
-	
-	public Card(String name, int number, String type) {
+	public static ArrayList<String> cardNames = new ArrayList<String>();
+	public static ArrayList<String> romanNumbers = new ArrayList<String>();
+	public Card(String name, String number, String image) {
 		this.name = name;
 		this.number = number;
-		this.type= type;
+		this.image= image;
 	}
+	public Card() {
+		cardNames.addAll(Arrays.asList("Le mat","Le bateleur", "La papesse", "L'impératrice",
+				 "L'empereur", "Le pape", "Le chariot", "La Justice",
+				 "L'amoureux", "L'hermite", "La roue de fortune",
+				 "La force", "Le pendu", "L'arcane sans nom","Tempérance", 
+				 "Le diable", "La maison dieu","L'étoile", "La lune", 
+				 "Le soleil", "Le jugement","Le monde"));
+		romanNumbers.addAll(Arrays.asList("I", "II", "III", "IV", "V", "VI", "VII", "VIII","IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII"));
+		//this.generateDeck();
+	}
+	
+	
 	
 	public String getImageFile() {
 		return "C:\\Users\\aless\\eclipse-workspace\\tarot\\src\\tarot\\assets\\"+this.image;
@@ -37,10 +47,13 @@ abstract class Card extends JFrame {
 		this.description = description;
 	}
 	
-	public void updateCard(String name, int number) {}
-
-	public void updateCard(String name, int number, String color) {}
+	public void updateCard(String name, String number) {
+		//ajouter sécurité sur number
+		this.name=name;
+		this.number=number;
+	}
 	
+
 	public String toString() {
 		return this.name;
 	}
