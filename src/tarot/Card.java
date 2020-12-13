@@ -16,6 +16,7 @@ public class Card extends JFrame {
 	protected String name;
 	protected String description;
 	protected ArrayList<Card> deck = new ArrayList<Card>();
+	public static ArrayList<String> numbers = new ArrayList<String>();
 	protected String image;
 	public static ArrayList<String> cardNames = new ArrayList<String>();
 	public static ArrayList<String> romanNumbers = new ArrayList<String>();
@@ -33,12 +34,15 @@ public class Card extends JFrame {
 				 "Le soleil", "Le jugement","Le monde"));
 		romanNumbers.addAll(Arrays.asList("I", "II", "III", "IV", "V", "VI", "VII", "VIII","IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII"));
 		//this.generateDeck();
+
+		numbers.addAll(Arrays.asList("XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII"));
 	}
 	
 	
 	
 	public String getImageFile() {
-		return "C:\\Users\\aless\\eclipse-workspace\\tarot\\src\\tarot\\assets\\"+this.image;
+		return ".\\src\\tarot\\assets\\"+this.image;
+//		return "C:\\Users\\aless\\eclipse-workspace\\tarot\\src\\tarot\\assets\\"+this.image;
 	}
 	
 	
@@ -52,10 +56,18 @@ public class Card extends JFrame {
 		this.name=name;
 		this.number=number;
 	}
-	
 
 	public String toString() {
 		return this.name;
 	}
+	
+	public void romanConversion(int i) {
+		String result = numbers.get(i);
+		numbers.remove(i);
+		romanNumbers.add(result);
+		//return result;
+	}
+	
+	
 	
 }

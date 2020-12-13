@@ -1,15 +1,23 @@
 package tarot;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.print.DocFlavor.URL;
 import javax.swing.ImageIcon;
 
 public class Tarot {
-
+	static Board board = null;
 	public static void main(String[] args) {
 	
 		//Deck deck = new Deck();
@@ -28,14 +36,12 @@ public class Tarot {
 		//System.out.println("XXXXXXXXXXXXXXXX");
 		//deckMinor.showDeck();
 
-	
+
 		Board board = new Board();
 
 		//board.deck.suffleDeck(board.deck.deck);
 		//board.deck.showDeck(board.deck.deckMajor);
-		board.showMainMenu();
-
-		
+		//board.showMainMenu();
 	}
 
 }

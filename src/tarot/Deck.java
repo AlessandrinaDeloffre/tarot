@@ -6,41 +6,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 
-public class Deck extends JPanel {
+
+public class Deck implements java.io.Serializable{
 	public ArrayList<Card> deck = new ArrayList<Card>();
-
+	public ArrayList<Card> searchDeck = new ArrayList<Card>();
 	public String[] cardNames;
 	public String[] cardNumbers;
+	public String[] numbers;
 
-	public JPanel panel;
-	public JFrame window;
-	public String deckType;
-	/*public Deck(String type) {
-		if(type=="major") {
-			this.deck = new CardMajor().deck;
-			this.deckType=type;
-		} else if(type=="minor") {
-			this.deck = new CardMinor().deck;
-			this.deckType=type;
-		} else if (type=="complete"){
-			this.deckMajor = new CardMajor().deck;
-			this.deck= this.deckMajor;
-			this.deckMinor = new CardMinor().deck;
-			deck.addAll(this.deckMinor);
-			this.deckType=type;
-		}
-	}*/
 	
 	public Deck() {
 		generateDeck();
 		getLists();
 	}
+	
 	public void generateDeck() {
 		new Card();
 		for(int i=0; i<Card.cardNames.size(); i++) {
@@ -57,6 +39,12 @@ public class Deck extends JPanel {
 		
 	}
 	
+	public void reinitializeDeck(Card c) {
+		this.deck.add(c);
+		Card.cardNames.add(c.name);
+		
+	}
+	
 	public void getLists() {
 		ArrayList<String> cardNamesList = new ArrayList<String>();
 		cardNamesList.addAll(Card.cardNames);
@@ -64,8 +52,11 @@ public class Deck extends JPanel {
 		
 		ArrayList<String> cardNumbersList = new ArrayList<String>();
 		cardNumbersList.addAll(Card.romanNumbers); 
-	
 		cardNumbers = cardNumbersList.toArray(new String[cardNumbersList.size()]);
+
+		ArrayList<String> numbersList = new ArrayList<String>();
+		numbersList.addAll(Card.numbers); 
+		numbers = numbersList.toArray(new String[numbersList.size()]);
 
 	}
 
