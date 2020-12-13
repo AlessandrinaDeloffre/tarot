@@ -34,7 +34,9 @@ public class Deck implements java.io.Serializable{
 			} else {
 				imgName = i+"-"+mots[0]+"-"+mots[1]+".jpg";
 			}
-			this.deck.add(new Card(Card.cardNames.get(i), Card.romanNumbers.get(i), imgName));
+			Card card =new Card(Card.cardNames.get(i), Card.romanNumbers.get(i), imgName);
+			card.addDescription(Card.positives.get(i), Card.negatives.get(i));
+			this.deck.add(card);
 		}
 		
 	}
@@ -42,8 +44,11 @@ public class Deck implements java.io.Serializable{
 	public void reinitializeDeck(Card c) {
 		this.deck.add(c);
 		Card.cardNames.add(c.name);
+		getLists();
 		
 	}
+	
+
 	
 	public void getLists() {
 		ArrayList<String> cardNamesList = new ArrayList<String>();
@@ -74,7 +79,23 @@ public class Deck implements java.io.Serializable{
 	}
 	
 	public void deleteCard(Card c) {
+		for(int i=0; i<Card.cardNames.size();i++) {
+			if(Card.cardNames.get(i) == c.name) {
+				Card.cardNames.remove(i);
+				break;
+			}
+		}
+		for(int i=0; i<Card.romanNumbers.size();i++) {
+			if(Card.romanNumbers.get(i) == c.number) {
+				Card.romanNumbers.remove(i);
+				break;
+			}
+		}
+		
+		Card.numbers.set(0, c.number);
+		
 		deck.remove(c);
+		getLists();
 		
 	}
 	public void addCard(String name, String number, String image) {
@@ -113,7 +134,7 @@ public class Deck implements java.io.Serializable{
 	public ArrayList searchByNumber(ArrayList<Card> d, String number) {
 		ArrayList<Card> searchArray = new ArrayList<Card>();
 		for(int i=0;i<this.deck.size(); i++) {
-			//System.out.println(this.deck.get(i).name);
+			System.out.println(this.deck.get(i).number);
 			if(this.deck.get(i).number == number) {
 				searchArray.add(this.deck.get(i));
 			}
