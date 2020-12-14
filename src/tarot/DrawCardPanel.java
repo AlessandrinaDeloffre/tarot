@@ -27,7 +27,7 @@ public class DrawCardPanel extends JPanel{
 		this.panel = new JPanel();
 		this.cards=cards;
 		this.subPanel = new JPanel();
-		Tarot.addMenu(new DrawCardMenu(deck));
+		Main.addMenu(new DrawCardMenu(deck));
 		if (type==1) {
 			System.out.println("ici");
 			titlesPanel.removeAll();
@@ -37,12 +37,12 @@ public class DrawCardPanel extends JPanel{
 			String[] titles =  {"Vos amours", "Votre travail", "Votre famille", "Vos amis", "Votre état d'esprit"};
 			
 			for(int i =0; i<titles.length; i++) {
-				titlesPanel.add(Tarot.createLabel(titles[i], 14));
+				titlesPanel.add(Main.createLabel(titles[i], 14));
 			}
 			
 			for(int i=0; i<5; i++) {
 				randomCards(arrayOf5);
-				significations.add(Tarot.createLabel(arrayOf5.get(i).descriPositive, 14));
+				significations.add(Main.createLabel(arrayOf5.get(i).descriPositive, 14));
 			}
 			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 			
@@ -61,12 +61,12 @@ public class DrawCardPanel extends JPanel{
 			String[] titles =  {"Passé", "Présent", "Futur"};
 			
 			for(int i =0; i<titles.length; i++) {
-				titlesPanel.add(Tarot.createLabel(titles[i], 14));
+				titlesPanel.add(Main.createLabel(titles[i], 14));
 			}
 			
 			for(int i=0; i<3; i++) {
 				randomCards(arrayOf3);
-				significations.add(Tarot.createLabel(arrayOf3.get(i).descriPositive, 14));
+				significations.add(Main.createLabel(arrayOf3.get(i).descriPositive, 14));
 			}
 	
 			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));

@@ -33,19 +33,19 @@ public class CollectionMenu  extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==home) {
-			Tarot.menuPanel.removeAll();
-			Tarot.subMenu.removeAll();
-			Tarot.changePanel(new HomePanel(deck));
+			Main.menuPanel.removeAll();
+			Main.subMenu.removeAll();
+			Main.changePanel(new HomePanel(deck));
 		}
 		if(e.getSource()==addCard) {
-			Tarot.addSubMenu(new AddCardMenu(deck));
-			Tarot.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.addSubMenu(new AddCardMenu(deck));
+			Main.changePanel(new CollectionPanel(deck, deck.deck));
 			
 		}
 		if(e.getSource()==searchCard) {
-			Tarot.addSubMenu(new SearchMenu(deck));
+			Main.addSubMenu(new SearchMenu(deck));
 			deck.getLists();
-			Tarot.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.changePanel(new CollectionPanel(deck, deck.deck));
 		
 			
 		}

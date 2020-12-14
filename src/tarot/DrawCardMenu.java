@@ -34,17 +34,17 @@ public class DrawCardMenu extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==home) {
-			Tarot.menuPanel.removeAll();
-			Tarot.subMenu.removeAll();
-			Tarot.changePanel(new HomePanel(deck));
+			Main.menuPanel.removeAll();
+			Main.subMenu.removeAll();
+			Main.changePanel(new HomePanel(deck));
 		}
 		
 		if(e.getSource()==draw1) {
-			Tarot.changePanel(new DrawCardPanel(deck, deck.deck, 1));
+			Main.changePanel(new DrawCardPanel(deck, deck.deck, 1));
 		}
 		
 		if(e.getSource()==draw2) {
-			Tarot.changePanel(new DrawCardPanel(deck, deck.deck, 2));
+			Main.changePanel(new DrawCardPanel(deck, deck.deck, 2));
 		}
 		
 		

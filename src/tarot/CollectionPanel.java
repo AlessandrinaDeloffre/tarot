@@ -23,7 +23,7 @@ public class CollectionPanel  extends JPanel{
 	public CollectionPanel(Deck deck, ArrayList<Card> cards) {
 		this.deck=deck;
 		this.panel = new JPanel();
-		Tarot.addMenu(new CollectionMenu(deck));
+		Main.addMenu(new CollectionMenu(deck));
 		
 		
 		for (int i =0; i<cards.size();i++) {
@@ -38,8 +38,8 @@ public class CollectionPanel  extends JPanel{
 
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					Tarot.addMenu(new SingleCardMenu(deck,  deck.getCard(cards, index)));
-					Tarot.changePanel(new SingleCardPanel( deck.getCard(cards, index)));
+					Main.addMenu(new SingleCardMenu(deck,  deck.getCard(cards, index)));
+					Main.changePanel(new SingleCardPanel( deck.getCard(cards, index)));
 				}
 				public void mouseEntered(MouseEvent arg0) {}
 				public void mouseExited(MouseEvent arg0) {}
@@ -51,7 +51,7 @@ public class CollectionPanel  extends JPanel{
 		}
 		int row = (int) Math.ceil(((double)cards.size())/6);
 		panel.setLayout(new GridLayout(row, 6));
-		this.add(Tarot.menuPanel);
+		this.add(Main.menuPanel);
 		this.add(panel);
 	}
 

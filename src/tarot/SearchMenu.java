@@ -36,16 +36,16 @@ public class SearchMenu extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==cardNumber) {
 			searchDeck = deck.searchByNumber(deck.deck,cardNumber.getSelectedItem().toString());
-			Tarot.changePanel(new CollectionPanel(deck, searchDeck));
+			Main.changePanel(new CollectionPanel(deck, searchDeck));
 		}
 		if(e.getSource()==cardName) {
 			searchDeck = deck.searchByName(deck.deck, cardName.getSelectedItem().toString());
-			Tarot.changePanel(new CollectionPanel(deck, searchDeck));
+			Main.changePanel(new CollectionPanel(deck, searchDeck));
 			
 		}
 		if(e.getSource()==showAll) {
-			Tarot.subMenu.removeAll();
-			Tarot.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.subMenu.removeAll();
+			Main.changePanel(new CollectionPanel(deck, deck.deck));
 		}
 		
 	}

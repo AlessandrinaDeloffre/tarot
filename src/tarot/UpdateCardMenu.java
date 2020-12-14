@@ -57,14 +57,14 @@ public class UpdateCardMenu extends JPanel implements ActionListener{
 					card.updateCard(name, descriPositive, descriNegative);
 					deck.getLists();
 					System.out.println("ici");
-					Tarot.addMenu(new SingleCardMenu(deck, card));
-					Tarot.changePanel(new SingleCardPanel(card));
+					Main.addMenu(new SingleCardMenu(deck, card));
+					Main.changePanel(new SingleCardPanel(card));
 		
 				}
 				
 			} catch (Exception ex) {
 				ex.printStackTrace();
-				JOptionPane.showMessageDialog(Tarot.window, "Erreur de modification de la carte.");
+				JOptionPane.showMessageDialog(Main.window, "Erreur de modification de la carte.");
 			}
 		}
 	}

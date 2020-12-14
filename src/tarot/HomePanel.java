@@ -19,7 +19,7 @@ public class HomePanel extends JPanel implements ActionListener{
 	public HomePanel(Deck deck) {
 		this.deck = deck;
 		this.panel = new JPanel();
-		panel.add(Tarot.createLabel("Bienvenue", 32));
+		panel.add(Main.createLabel("Bienvenue", 32));
 		seeCollection.addActionListener(this);
 		drawCards.addActionListener(this);
 		panel.add(seeCollection);
@@ -34,10 +34,10 @@ public class HomePanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==seeCollection) {
-			Tarot.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.changePanel(new CollectionPanel(deck, deck.deck));
 		}
 		if(e.getSource()==drawCards) {
-			Tarot.changePanel(new DrawCardPanel(deck, deck.deck, 0));
+			Main.changePanel(new DrawCardPanel(deck, deck.deck, 0));
 		}
 		
 	}

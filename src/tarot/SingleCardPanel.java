@@ -34,19 +34,19 @@ public class SingleCardPanel extends JPanel {
 		
 		
 		name.setText(card.name);
-		this.subPanel.add(Tarot.createLabel("Nom", 20));
+		this.subPanel.add(Main.createLabel("Nom", 20));
 		this.subPanel.add(name);
 		
 		if(card.descriPositive !=null) {
 			JLabel descriPositive = new JLabel();
 			descriPositive.setText(card.descriPositive);
-			this.subPanel.add(Tarot.createLabel("Signification positive", 20));
+			this.subPanel.add(Main.createLabel("Signification positive", 20));
 			this.subPanel.add(descriPositive);
 			}
 			if(card.descriPositive !=null) {
 			JLabel descriNegative = new JLabel();
 			descriNegative.setText(card.descriNegative);
-			this.subPanel.add(Tarot.createLabel("Signification négative", 20));
+			this.subPanel.add(Main.createLabel("Signification négative", 20));
 			this.subPanel.add(descriNegative);
 			subPanel.setLayout(new BoxLayout(subPanel, BoxLayout.Y_AXIS));
 			}

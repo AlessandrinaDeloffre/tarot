@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-public class Tarot {
+public class Main {
 
 	public static JPanel menuPanel;
 	public static JScrollPane scrollPanel;

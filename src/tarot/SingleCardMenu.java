@@ -35,26 +35,26 @@ public class SingleCardMenu extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==home) {
-			Tarot.menuPanel.removeAll();
-			Tarot.subMenu.removeAll();
-			Tarot.changePanel(new HomePanel(deck));
+			Main.menuPanel.removeAll();
+			Main.subMenu.removeAll();
+			Main.changePanel(new HomePanel(deck));
 		}
 		
 		if(e.getSource()==updateCard) {
-			Tarot.addSubMenu(new UpdateCardMenu(deck, card));
-			Tarot.changePanel(new SingleCardPanel(card));
+			Main.addSubMenu(new UpdateCardMenu(deck, card));
+			Main.changePanel(new SingleCardPanel(card));
 			
 		}
 		if(e.getSource()==deleteCard) {
 			deck.deleteCard(card);	
-			Tarot.addMenu(new CollectionMenu(deck));
-			Tarot.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.addMenu(new CollectionMenu(deck));
+			Main.changePanel(new CollectionPanel(deck, deck.deck));
 		}
 		if(e.getSource()==showAll) {
 			
-			Tarot.subMenu.removeAll();
-			Tarot.addMenu(new CollectionMenu(deck));
-			Tarot.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.subMenu.removeAll();
+			Main.addMenu(new CollectionMenu(deck));
+			Main.changePanel(new CollectionPanel(deck, deck.deck));
 		}
 	}
 }

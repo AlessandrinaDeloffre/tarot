@@ -93,8 +93,8 @@ public class AddCardMenu extends JPanel implements ActionListener {
 					newCard.addDescription(descriPositive, descriNegative);
 					newCard.updateNumber(cardNumber.getSelectedItem().toString());
 					deck.reinitializeDeck(newCard);
-					Tarot.subMenu.removeAll();
-					Tarot.changePanel(new CollectionPanel(deck, deck.deck));
+					Main.subMenu.removeAll();
+					Main.changePanel(new CollectionPanel(deck, deck.deck));
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}	
