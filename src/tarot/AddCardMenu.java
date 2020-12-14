@@ -89,9 +89,8 @@ public class AddCardMenu extends JPanel implements ActionListener {
 					origImage = ImageIO.read(new File(path));
 					File outputfile = new File(".\\src\\tarot\\assets\\"+img);
 					ImageIO.write(origImage, "jpg", outputfile);
-					Card newCard = new Card(name, number, img);
-					newCard.addDescription(descriPositive, descriNegative);
-					newCard.updateNumber(cardNumber.getSelectedItem().toString());
+					Card newCard = new Card(name, number, img, descriPositive, descriNegative);
+					newCard.updateNumbers(cardNumber.getSelectedItem().toString());
 					deck.reinitializeDeck(newCard);
 					Main.subMenu.removeAll();
 					Main.changePanel(new CollectionPanel(deck, deck.deck));

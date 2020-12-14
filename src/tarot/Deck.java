@@ -30,8 +30,7 @@ public class Deck implements java.io.Serializable{
 			} else {
 				imgName = i+"-"+mots[0]+"-"+mots[1]+".jpg";
 			}
-			Card card =new Card(Card.cardNames.get(i), Card.romanNumbers.get(i), imgName);
-			card.addDescription(Card.positives.get(i), Card.negatives.get(i));
+			Card card =new Card(Card.cardNames.get(i), Card.romanNumbers.get(i), imgName, Card.positives.get(i), Card.negatives.get(i));
 			this.deck.add(card);
 		}
 		
@@ -56,7 +55,7 @@ public class Deck implements java.io.Serializable{
 		cardNumbers = cardNumbersList.toArray(new String[cardNumbersList.size()]);
 
 		ArrayList<String> numbersList = new ArrayList<String>();
-		numbersList.addAll(Card.numbers); 
+		numbersList.addAll(Card.additionnalNumbers); 
 		numbers = numbersList.toArray(new String[numbersList.size()]);
 
 	}
@@ -80,7 +79,7 @@ public class Deck implements java.io.Serializable{
 			}
 		}
 		
-		Card.numbers.set(0, c.number);
+		Card.additionnalNumbers.set(0, c.number);
 		
 		deck.remove(c);
 		System.out.println(deck);
