@@ -37,24 +37,24 @@ public class SingleCardMenu extends JPanel implements ActionListener {
 		if(e.getSource()==home) {
 			Main.menuPanel.removeAll();
 			Main.subMenu.removeAll();
-			Main.changePanel(new HomePanel(deck));
+			Main.updatePanel(new HomePanel(deck));
 		}
 		
 		if(e.getSource()==updateCard) {
 			Main.addSubMenu(new UpdateCardMenu(deck, card));
-			Main.changePanel(new SingleCardPanel(card));
+			Main.updatePanel(new SingleCardPanel(card));
 			
 		}
 		if(e.getSource()==deleteCard) {
 			deck.deleteCard(card);	
 			Main.addMenu(new CollectionMenu(deck));
-			Main.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.updatePanel(new CollectionPanel(deck, deck.deck));
 		}
 		if(e.getSource()==showAll) {
 			
 			Main.subMenu.removeAll();
 			Main.addMenu(new CollectionMenu(deck));
-			Main.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.updatePanel(new CollectionPanel(deck, deck.deck));
 		}
 	}
 }

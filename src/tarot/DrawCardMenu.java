@@ -36,15 +36,15 @@ public class DrawCardMenu extends JPanel implements ActionListener{
 		if(e.getSource()==home) {
 			Main.menuPanel.removeAll();
 			Main.subMenu.removeAll();
-			Main.changePanel(new HomePanel(deck));
+			Main.updatePanel(new HomePanel(deck));
 		}
 		
 		if(e.getSource()==draw1) {
-			Main.changePanel(new DrawCardPanel(deck, deck.deck, 1));
+			Main.updatePanel(new DrawCardPanel(deck, deck.deck, 1));
 		}
 		
 		if(e.getSource()==draw2) {
-			Main.changePanel(new DrawCardPanel(deck, deck.deck, 2));
+			Main.updatePanel(new DrawCardPanel(deck, deck.deck, 2));
 		}
 		
 		

@@ -79,7 +79,7 @@ File f = new File("./src/tarot/tmp/board.ser");
 		scrollPanel=new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		window.setSize(1200, 650);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		changePanel(new HomePanel(deck));
+		updatePanel(new HomePanel(deck));
 
 	}
 	
@@ -93,7 +93,7 @@ File f = new File("./src/tarot/tmp/board.ser");
 		
 	} 
 	
-	public static void changePanel(JPanel panel) {
+	public static void updatePanel(JPanel panel) {
 		window.getContentPane().removeAll();
 		mainPanel.removeAll();
 		

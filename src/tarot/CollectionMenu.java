@@ -35,17 +35,17 @@ public class CollectionMenu  extends JPanel implements ActionListener{
 		if(e.getSource()==home) {
 			Main.menuPanel.removeAll();
 			Main.subMenu.removeAll();
-			Main.changePanel(new HomePanel(deck));
+			Main.updatePanel(new HomePanel(deck));
 		}
 		if(e.getSource()==addCard) {
 			Main.addSubMenu(new AddCardMenu(deck));
-			Main.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.updatePanel(new CollectionPanel(deck, deck.deck));
 			
 		}
 		if(e.getSource()==searchCard) {
 			Main.addSubMenu(new SearchMenu(deck));
 			deck.updateLists();
-			Main.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.updatePanel(new CollectionPanel(deck, deck.deck));
 		
 			
 		}

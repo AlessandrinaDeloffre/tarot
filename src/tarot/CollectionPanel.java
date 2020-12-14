@@ -39,7 +39,7 @@ public class CollectionPanel  extends JPanel{
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
 					Main.addMenu(new SingleCardMenu(deck,  deck.getCard(cards, index)));
-					Main.changePanel(new SingleCardPanel( deck.getCard(cards, index)));
+					Main.updatePanel(new SingleCardPanel( deck.getCard(cards, index)));
 				}
 				public void mouseEntered(MouseEvent arg0) {}
 				public void mouseExited(MouseEvent arg0) {}

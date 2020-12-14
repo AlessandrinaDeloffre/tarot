@@ -34,10 +34,10 @@ public class HomePanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==seeCollection) {
-			Main.changePanel(new CollectionPanel(deck, deck.deck));
+			Main.updatePanel(new CollectionPanel(deck, deck.deck));
 		}
 		if(e.getSource()==drawCards) {
-			Main.changePanel(new DrawCardPanel(deck, deck.deck, 0));
+			Main.updatePanel(new DrawCardPanel(deck, deck.deck, 0));
 		}
 		
 	}
