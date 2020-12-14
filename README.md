@@ -75,3 +75,8 @@ Some functions are set in Main and used globally accross the panels, menus and s
 | void addMenu(Jpanel menu)               	| empty menu and repopulates it             	|
 | void addSubMenu(Jpanel submenu)         	| empty subMenu and repopulates it          	|
 | void createLabel(String text, int font) 	| returns a JLabel                          	|
+
+
+## Backup of personalized deck
+
+In order for the user to save the changes applied to the initial deck, the deck created in Main is saved in deck.ser file. 

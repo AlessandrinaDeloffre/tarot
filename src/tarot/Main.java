@@ -34,11 +34,11 @@ public class Main {
 	public static void main(String[] args) {
 		window = new JFrame("Tarot");
 		
-File f = new File("./src/tarot/tmp/board.ser");
+File f = new File("./src/tarot/tmp/deck.ser");
 		
 		if(f.exists() && !f.isDirectory()) {
 			try {
-				FileInputStream fileIn = new FileInputStream("./src/tarot/tmp/board.ser");
+				FileInputStream fileIn = new FileInputStream("./src/tarot/tmp/deck.ser");
 				ObjectInputStream in = new ObjectInputStream(fileIn);
 				deck = (Deck) in.readObject();
 				in.close();
@@ -48,7 +48,7 @@ File f = new File("./src/tarot/tmp/board.ser");
 				deck= new Deck();
 				return;
 			} catch (ClassNotFoundException c) {
-				System.out.println("Board class not found");
+				System.out.println("Deck class not found");
 				deck= new Deck();
 				c.printStackTrace();
 				return;
@@ -60,12 +60,12 @@ File f = new File("./src/tarot/tmp/board.ser");
 		window.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				try {
-					FileOutputStream fileOut = new FileOutputStream("./src/tarot/tmp/board.ser");
+					FileOutputStream fileOut = new FileOutputStream("./src/tarot/tmp/deck.ser");
 					ObjectOutputStream out = new ObjectOutputStream(fileOut);
 					out.writeObject(deck);
 					out.close();
 					fileOut.close();
-					System.out.println("Data is saved in /tpm/board.ser");
+					System.out.println("Data is saved in /tpm/deck.ser");
 				} catch (IOException i) {
 					i.printStackTrace();
 				}
