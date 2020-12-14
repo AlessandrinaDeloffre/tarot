@@ -2,6 +2,7 @@ package tarot;
 
 import java.awt.Image;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,20 +30,21 @@ public class SingleCardPanel extends JPanel {
 		
 		
 		name.setText(card.name);
-		this.subPanel.add(Board.createLabel("Nom", 20));
+		this.subPanel.add(Tarot.createLabel("Nom", 20));
 		this.subPanel.add(name);
 		
 		if(card.descriPositive !=null) {
 			JLabel descriPositive = new JLabel();
 			descriPositive.setText(card.descriPositive);
-			this.subPanel.add(Board.createLabel("Signification positive", 20));
+			this.subPanel.add(Tarot.createLabel("Signification positive", 20));
 			this.subPanel.add(descriPositive);
 			}
 			if(card.descriPositive !=null) {
 			JLabel descriNegative = new JLabel();
 			descriNegative.setText(card.descriNegative);
-			this.subPanel.add(Board.createLabel("Signification négative", 20));
+			this.subPanel.add(Tarot.createLabel("Signification négative", 20));
 			this.subPanel.add(descriNegative);
+			subPanel.setLayout(new BoxLayout(subPanel, BoxLayout.Y_AXIS));
 			}
 			panel.add(subPanel);
 			this.add(panel);

@@ -17,7 +17,7 @@ public class HomePanel extends JPanel implements ActionListener{
 	public HomePanel(Deck deck) {
 		this.deck = deck;
 		this.panel = new JPanel();
-		panel.add(Board.createLabel("Bienvenue", 32));
+		panel.add(Tarot.createLabel("Bienvenue", 32));
 		seeCollection.addActionListener(this);
 		drawCards.addActionListener(this);
 		panel.add(seeCollection);

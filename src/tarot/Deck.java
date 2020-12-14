@@ -3,7 +3,7 @@ package tarot;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.util.ArrayList;
-import java.util.Collections;
+//import java.util.Collections;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -95,6 +95,7 @@ public class Deck implements java.io.Serializable{
 		Card.numbers.set(0, c.number);
 		
 		deck.remove(c);
+		System.out.println(deck);
 		getLists();
 		
 	}
@@ -104,7 +105,7 @@ public class Deck implements java.io.Serializable{
 	}
 	
 	public void suffleDeck(ArrayList<Card> d) {
-		Collections.shuffle(d);
+		//Collections.shuffle(d);
 	}
 	
 	
@@ -120,7 +121,7 @@ public class Deck implements java.io.Serializable{
 		}
 	}
 	
-	public ArrayList searchByName(ArrayList<Card> d, String name) {
+	public ArrayList<Card> searchByName(ArrayList<Card> d, String name) {
 		ArrayList<Card> searchArray = new ArrayList<Card>();
 		for(int i=0;i<d.size(); i++) {
 			//System.out.println(this.deck.get(i).name);
@@ -131,10 +132,10 @@ public class Deck implements java.io.Serializable{
 		return searchArray;
 	}
 	
-	public ArrayList searchByNumber(ArrayList<Card> d, String number) {
+	public ArrayList<Card> searchByNumber(ArrayList<Card> d, String number) {
 		ArrayList<Card> searchArray = new ArrayList<Card>();
 		for(int i=0;i<this.deck.size(); i++) {
-			System.out.println(this.deck.get(i).number);
+			//System.out.println(this.deck.get(i).number);
 			if(this.deck.get(i).number == number) {
 				searchArray.add(this.deck.get(i));
 			}
