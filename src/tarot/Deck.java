@@ -1,16 +1,12 @@
 package tarot;
 
-import java.awt.Dimension;
-import java.awt.Image;
 import java.util.ArrayList;
-//import java.util.Collections;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 
 public class Deck implements java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public ArrayList<Card> deck = new ArrayList<Card>();
 	public ArrayList<Card> searchDeck = new ArrayList<Card>();
 	public String[] cardNames;
@@ -65,14 +61,6 @@ public class Deck implements java.io.Serializable{
 
 	}
 
-	public void addCardToPanel(ArrayList<Card> d, int i, JPanel p) {
-		JLabel label = new JLabel();
-		int width = 150;
-		ImageIcon imageIcon = new ImageIcon(new ImageIcon(this.getCard(d, i).getImageFile()).getImage().getScaledInstance(width, (int) (width*1.85), Image.SCALE_SMOOTH));
-		label.setIcon(imageIcon);
-		p.add(label);
-
-	}
 	
 	public Card getCard(ArrayList<Card> d, int index) {
 		return d.get(index);
@@ -98,27 +86,6 @@ public class Deck implements java.io.Serializable{
 		System.out.println(deck);
 		getLists();
 		
-	}
-	public void addCard(String name, String number, String image) {
-		Card newCard = new Card(name, number, image);
-		deck.add(newCard);
-	}
-	
-	public void suffleDeck(ArrayList<Card> d) {
-		//Collections.shuffle(d);
-	}
-	
-	
-	public void showDeck(ArrayList<Card> d) {
-		for(int i=0;i<d.size();i++) {
-			System.out.println(d.get(i).toString());
-		}
-	}
-	
-	public void showCards(ArrayList<Card> cards) {
-		for(int i=0;i<cards.size();i++) {
-			System.out.println(cards.get(i).toString());
-		}
 	}
 	
 	public ArrayList<Card> searchByName(ArrayList<Card> d, String name) {

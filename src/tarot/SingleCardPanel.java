@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 
 public class SingleCardPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Card card;
 	JPanel panel;
 	JLabel label;

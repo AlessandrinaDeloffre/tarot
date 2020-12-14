@@ -3,12 +3,15 @@ package tarot;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 public class SearchMenu extends JPanel implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Deck deck;
 	JPanel panel = new JPanel();
 	JComboBox<String> cardNumber;

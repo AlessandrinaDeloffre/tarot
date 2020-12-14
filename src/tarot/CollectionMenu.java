@@ -7,6 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class CollectionMenu  extends JPanel implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Deck deck;
 	JPanel panel = new JPanel();
 	JButton home = new JButton("Accueil");

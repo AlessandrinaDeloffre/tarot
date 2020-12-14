@@ -7,6 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class SingleCardMenu extends JPanel implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Deck deck;
 	Card card;
 	JPanel panel = new JPanel();

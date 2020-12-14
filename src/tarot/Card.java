@@ -1,16 +1,14 @@
 package tarot;
 
-import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class Card extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String number;
 	protected String type;
 	protected String name;

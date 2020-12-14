@@ -3,8 +3,6 @@ package tarot;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -12,6 +10,10 @@ import javax.swing.JTextField;
 
 public class UpdateCardMenu extends JPanel implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Deck deck;
 	Card card;
 	JPanel panel = new JPanel();

@@ -1,18 +1,18 @@
 package tarot;
 
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
-
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class DrawCardPanel extends JPanel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JPanel panel;
 	JPanel subPanel;
 	Deck deck;
@@ -85,7 +85,7 @@ public class DrawCardPanel extends JPanel{
 		this.add(panel);
 	}
 	
-	public void generateDeck(ArrayList array) {
+	public void generateDeck(ArrayList<Card> array) {
 		for (int i =0; i<array.size();i++) {
 			
 			this.card = deck.getCard(this.cards, i);
@@ -93,6 +93,7 @@ public class DrawCardPanel extends JPanel{
 			int width = 150;
 			ImageIcon imageIcon = new ImageIcon(new ImageIcon(this.card.getImageFile()).getImage().getScaledInstance(width, (int) (width*1.85), Image.SCALE_SMOOTH));
 			label.setIcon(imageIcon);
+			@SuppressWarnings("unused")
 			final int index = i;
 			
 			subPanel.add(label);
@@ -100,7 +101,7 @@ public class DrawCardPanel extends JPanel{
 		panel.add(subPanel);
 	}
 	
-	public ArrayList randomCards(ArrayList<Card> array) {
+	public ArrayList<Card> randomCards(ArrayList<Card> array) {
 		
 		
 		int rand =  (int)(Math.random() * (deck.deck.size()));

@@ -16,6 +16,10 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class AddCardMenu extends JPanel implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Deck deck;
 	JPanel panel = new JPanel();
 	JComboBox<String> cardNumber;
@@ -39,6 +43,7 @@ public class AddCardMenu extends JPanel implements ActionListener {
 		negativeField.setPreferredSize( new Dimension( 200, 24 ) );
 		negativeField.setText("signification negative");
 		
+		@SuppressWarnings("unused")
 		final String path[] = {""};
 		
 		addImage.addActionListener(this);
