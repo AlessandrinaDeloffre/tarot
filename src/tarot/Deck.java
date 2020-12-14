@@ -16,7 +16,7 @@ public class Deck implements java.io.Serializable{
 	
 	public Deck() {
 		generateDeck();
-		getLists();
+		updateLists();
 	}
 	
 	public void generateDeck() {
@@ -39,13 +39,13 @@ public class Deck implements java.io.Serializable{
 	public void reinitializeDeck(Card c) {
 		this.deck.add(c);
 		Card.cardNames.add(c.name);
-		getLists();
+		updateLists();
 		
 	}
 	
 
 	
-	public void getLists() {
+	public void updateLists() {
 		ArrayList<String> cardNamesList = new ArrayList<String>();
 		cardNamesList.addAll(Card.cardNames);
 		cardNames = cardNamesList.toArray(new String[cardNamesList.size()]);
@@ -83,7 +83,7 @@ public class Deck implements java.io.Serializable{
 		
 		deck.remove(c);
 		System.out.println(deck);
-		getLists();
+		updateLists();
 		
 	}
 	

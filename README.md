@@ -13,4 +13,22 @@ In order to generate a deck of cards, I used two base classes
 | Functions              	| String getImageFile() <br>void updateCard(name, descriPositive, descriNegative)<br>void updateNumbers(number)                                                        	| returns the path to the image<br>updates a card <br>updates romanNumbers and additionnalNumbers when a new card is created                                          	|
 
 
++------------------------+---------------------------------------------------+-------------------------------------------------------------+
+| Constructors           | Deck()                                            | calls generateDeck and updateLists                          |
++------------------------+---------------------------------------------------+-------------------------------------------------------------+
+| Additionnal parameters | ArrayList<Card> deck                              | arraylist of all the cards                                  |
+|                        | ArrayList<Card> searchDeck                        | subarraylist used with searchFunctions                      |
+|                        | String[] cardNames                                | array corresponding to arraylist name of Card               |
+|                        | String[] cardNumbers                              | array corresponding to arraylist romanNumbers of Card       |
+|                        | String[] numbers                                  | array corresponding to arraylist additionnalNumbers of Card |
+
+| Functions              | void generateDeck()                               | generates full deck according to the arraylists of Card     |
+|                        | void reinitializeDeck()                           | updates arraylists and arrays when a new card is added      |
+|                        | void updateLists()                                | updates arrays corresponding to arraylists of Card          |
+|                        | Card getCard(ArrayList, index)                    | returns Card from arraylist at given indew                  |
+|                        | void deletedCard(Card c)                          | deletes Card                                                |
+|                        | ArrayList<Card> searchByName(ArrayList, name)     | populates searchArray with name parameter                   |
+|                        | ArrayList<Card> searchByNumber(ArrayList, number) | populates searchArray with number parameter                 |
+
+
 

@@ -55,7 +55,7 @@ public class UpdateCardMenu extends JPanel implements ActionListener{
 				if(name!=null) {
 					System.out.println("ici1");
 					card.updateCard(name, descriPositive, descriNegative);
-					deck.getLists();
+					deck.updateLists();
 					System.out.println("ici");
 					Main.addMenu(new SingleCardMenu(deck, card));
 					Main.changePanel(new SingleCardPanel(card));

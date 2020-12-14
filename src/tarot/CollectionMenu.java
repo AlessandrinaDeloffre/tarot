@@ -44,7 +44,7 @@ public class CollectionMenu  extends JPanel implements ActionListener{
 		}
 		if(e.getSource()==searchCard) {
 			Main.addSubMenu(new SearchMenu(deck));
-			deck.getLists();
+			deck.updateLists();
 			Main.changePanel(new CollectionPanel(deck, deck.deck));
 		
 			
